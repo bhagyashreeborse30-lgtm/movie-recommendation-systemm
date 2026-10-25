@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CineMatch is an AI-based movie recommendation system built as a rule-based expert system.">
+  <title>CineMatch – AI-Based Movie Recommendation System</title>
+
+  <!-- Fonts (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= NAVIGATION BAR ================= -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="#home" class="logo"><span class="logo-text">CineMatch</span> <span aria-hidden="true">🎬</span></a>
+
+      <button class="nav-toggle" id="navToggle" type="button"
+              aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#recommend">Recommend Movies</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ================= HOME / HERO ================= -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Rule-Based Expert System</p>
+        <h1>Discover Movies <span class="gradient-text">You'll Love!</span></h1>
+        <p class="subtitle">Find your next favourite movie with our smart recommendation system.</p>
+        <a href="#recommend" class="btn btn-primary btn-large">Get Recommendations</a>
+
+        <ul class="stats" aria-label="Project statistics">
+          <li><strong id="statMovies">0</strong><span>Movies in knowledge base</span></li>
+          <li><strong id="statRules">0</strong><span>IF-THEN rules</span></li>
+          <li><strong id="statLanguages">0</strong><span>Languages</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= RECOMMEND MOVIES ================= -->
+    <section id="recommend" class="section">
+      <div class="container">
+        <h2 class="section-title">Find Your Movie</h2>
+        <p class="section-sub">Choose your preferences. The inference engine will match them with its IF-THEN rules.</p>
+
+        <form id="prefForm" class="pref-form" novalidate>
+
+          <fieldset class="pref-group">
+            <legend>Preferred Genre</legend>
+            <div class="options">
+              <input type="radio" id="genre-action" name="genre" value="Action">
+              <label for="genre-action">💥 Action</label>
+
+              <input type="radio" id="genre-comedy" name="genre" value="Comedy">
+              <label for="genre-comedy">😂 Comedy</label>
+
+              <input type="radio" id="genre-drama" name="genre" value="Drama">
+              <label for="genre-drama">🎭 Drama</label>
+
+              <input type="radio" id="genre-scifi" name="genre" value="Sci-Fi">
+              <label for="genre-scifi">🚀 Sci-Fi</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="pref-group">
+            <legend>Preferred Language</legend>
+            <div class="options">
+              <input type="radio" id="lang-english" name="language" value="English">
+              <label for="lang-english">English</label>
+
+              <input type="radio" id="lang-hindi" name="language" value="Hindi">
+              <label for="lang-hindi">Hindi <small>हिन्दी</small></label>
+
+              <input type="radio" id="lang-marathi" name="language" value="Marathi">
+              <label for="lang-marathi">Marathi <small>मराठी</small></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="pref-group">
+            <legend>Age Group</legend>
+            <div class="options">
+              <input type="radio" id="age-child" name="age" value="Child">
+              <label for="age-child">Child <small>All ages</small></label>
+
+              <input type="radio" id="age-teen" name="age" value="Teen">
+              <label for="age-teen">Teen <small>13+</small></label>
+
+              <input type="radio" id="age-adult" name="age" value="Adult">
+              <label for="age-adult">Adult <small>18+</small></label>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" id="findBtn" class="btn btn-primary">Find My Movies</button>
+            <button type="button" id="resetBtn" class="btn btn-ghost">Reset</button>
+            <p id="formMessage" class="form-message" role="alert"></p>
+          </div>
+        </form>
+
+        <!-- Results are inserted here by script.js -->
+        <div id="results" class="results" aria-live="polite">
+          <div class="placeholder">
+            <span aria-hidden="true">🍿</span>
+            <p>Your recommendations will appear here.<br>Pick a genre, language and age group, then press <strong>Find My Movies</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="about" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">About CineMatch</h2>
+        <p class="about-text">CineMatch is an AI-based Movie Recommendation System that uses a Rule-Based Expert System. It collects user preferences, matches them with predefined IF-THEN rules and recommends suitable movies.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>CineMatch 🎬</strong> – AI Mini Project · Rule-Based Expert System</p>
+      <p class="muted">© <span id="year"></span> CineMatch. Built with HTML, CSS and JavaScript. No external AI API used.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
